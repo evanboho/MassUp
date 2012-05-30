@@ -10,12 +10,21 @@ body {
   font-family: 'Nunito', sans-serif;
   font-size: 20px;
 }
+a {
+  color: black;
+  &:hover {
+  opacity: .6;
+}
+}
 .navbar {
   width: 700px;
   margin-left: auto;
   margin-right: auto;
   .logged-in {
-    float: right; }
+    float: right; 
+    .as {
+      font-size: .7em; }
+  }
   .logo {
     float: left; }
 }
@@ -24,15 +33,17 @@ h1, h2 {
   font-family: 'Megrim', cursive;
 }
 h1 { 
-  font-size: 5em;  
+  font-size: 3em;  
 }
 
 .header {
   text-align: center;
   background-color: #999;
   h1 {
-  padding: 20px 0 0px 0; 
-  margin: 0px;}
+  padding: 0px 0 0px 0; 
+  margin: 0px; }
+  p {
+  margin: 0; }
 }
 .center {
   width: 100%;
@@ -55,7 +66,7 @@ a.auth_provider {
   text-align: center;
   text-decoration: none;
   &:hover {
-    opacity: .6;
+    // opacity: .6;
 }
 }
 

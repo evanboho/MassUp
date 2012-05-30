@@ -10,16 +10,23 @@
 
 <div class="navbar">
   <div class="logo">
-    <%= link_to "MassUp", root_path %>
+    <%= link_to "Mass Up", root_path %>
   </div>
   <div class="logged-in">
 	<% if current_user %>
-	  <%= "logged in as #{current_user.username}" %>
+	  <span class="as">
+	    <%= "logged in as #{current_user.username}" %>
+	    <%= "through #{session[:logged_in_through]}" if session[:logged_in_through].present? %><br>
+	  </span>
+      <span style="float: right;">	  
+	  <%= image_tag photo(current_user), :size => "20x20" if photo(current_user).present?%>
 	  <%= link_to "sign out", destroy_user_session_path, :method => :delete %>
+	  </span>
 	<% else %>
 	  <%= link_to "sign in", sign_in_path %>
 	  <%= link_to "sign up", sign_up_path %>
 	<% end %>
+	<br>
   </div>
 </div>
 

@@ -1,21 +1,18 @@
 Massup::Application.routes.draw do
   
-  devise_for :users do
-    get "/sign_in"   => "devise/sessions#new" 
-    get "/sign_up"  => "devise/registrations#new"
+  devise_for :users
+  devise_scope :user do
+    get "/sign_in", :to => "devise/sessions#new" 
+    get "/sign_up", :to => "devise/registrations#new"
+    get "twitter_with_email", :to => "devise/omniauth_callbacks#twitter_with_email"
   end
-  resources :authentications # , :only => [:new, :create, :destroy]
+  
+  resources :authentications, :only => [:new, :create, :destroy]
   match 'users/auth/:provider/callback/' => 'authentications#create'
-  # get 'users/auth/:provider/' => 'authentications#new'
   
-  
-  resources :users
+  # resources :users
 
   root :to => "pages#index"
-  
-  # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase

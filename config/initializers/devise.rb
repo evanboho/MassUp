@@ -199,13 +199,21 @@ Devise.setup do |config|
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
-
+  
+if Rails.env.development? 
+  config.omniauth :facebook, ENV['FB_KEY'], ENV['FB_SECRET'],
+                  { :scope => 'email', 
+                    :client_options => {:ssl => {:verify => false}}}
+  config.omniauth :twitter, ENV['TW_KEY'], ENV['TW_SECRET'], { :client_options => { :ssl => { :verify => false }}}    
+  config.omniauth :google_oauth2, ENV['GOO_KEY'], ENV['GOO_SECRET'], { :client_options => { :ssl => { :verify => false }}}
+else
   config.omniauth :facebook, ENV['FB_KEY'], ENV['FB_SECRET'],
                   { :scope => 'email', 
                     :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt',
                     }}, :display => 'popup' }
   config.omniauth :twitter, ENV['TW_KEY'], ENV['TW_SECRET'], :display => 'popup'    
-  config.omniauth :google_oauth2, ENV['GOO_KEY'], ENV['GOO_SECRET'], { :display => 'popup' }
+  config.omniauth :google_oauth2, ENV['GOO_KEY'], ENV['GOO_SECRET'], { :display => 'popup',  }
+end
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

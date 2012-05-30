@@ -14,4 +14,4 @@
 /log/*.log
 /tmp
 
-/config/initializers/local_env_variables.rb
+/config/initializers/all_local_env_variables.rb

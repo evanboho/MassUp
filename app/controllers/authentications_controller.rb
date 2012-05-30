@@ -1,24 +1,8 @@
-class AuthenticationsController < ApplicationController
- 
-  def index
-    @authentications = current_user if current_user
-  end
-
-  def show
-    @authentication = Authentication.find(params[:id])
-  end
-    
-  def new
-    @authentication = Authentication.new
-  end
-  
-  def failure
-    render :text => request.env['omniauth.auth'].to_yaml
-  end
-    
+class AuthenticationsController < ApplicationController   
 
   def create
     info = request.env['omniauth.auth'].extra.raw_info
+    render :text => info
     auth = request.env['omniauth.auth'].except('extra')
     # render :text => auth['info']
      authentication = Authentication.find_by_provider_and_uid(auth.provider, auth.uid)
