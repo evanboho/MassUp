@@ -1,0 +1,7 @@
+<h3 class="center">connect with: <br>
+  <% %w(facebook twitter google_oauth2).each do |auth| %>
+    <a href="<%= "/users/auth/#{auth}" %>" class="auth_provider">
+      <%= image_tag "#{auth}_64.png", :size => "64x64", :alt => auth.split('_').first %>
+	</a>
+  <% end %>
+</h3>

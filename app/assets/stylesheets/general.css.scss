@@ -1,0 +1,79 @@
+.container {
+  clear: both;
+  width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #eee;
+}
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+}
+.navbar {
+  width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  .logged-in {
+    float: right; }
+  .logo {
+    float: left; }
+}
+
+h1, h2 {
+  font-family: 'Megrim', cursive;
+}
+h1 { 
+  font-size: 5em;  
+}
+
+.header {
+  text-align: center;
+  background-color: #999;
+  h1 {
+  padding: 20px 0 0px 0; 
+  margin: 0px;}
+}
+.center {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+
+form {
+  width: 33%;
+  margin-left: 33%;
+  margin-right: 33%;
+  input {
+  font-size: 1em;
+}
+}
+
+a.auth_provider {
+  text-align: center;
+  text-decoration: none;
+  &:hover {
+    opacity: .6;
+}
+}
+
+@media (max-width: 767px) {
+  body {
+  font-size: 14px; }
+  .container {
+    width: 80%; }
+  .navbar {
+  width: 90%; }
+  form {
+  width: 70%;
+  margin: 0 15% 0 15%;
+}
+}
+@media (max-width: 480px) {
+  body {
+  font-size: 12px; }
+  .container {
+    width: 100%; }
+}
